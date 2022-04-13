@@ -1,8 +1,9 @@
-import attachments.Attachment
-
 object WallService {
     private var posts = emptyArray<Post>()
+    private var comments = emptyArray<Comment>()
     private var properties: Int = 1
+
+
 
     fun add(post: Post): Post {
         post.id = properties
@@ -45,6 +46,18 @@ object WallService {
             }
         }
         return false
+    }
+
+
+    fun createComment(comment: Comment): Comment {
+        for (postArr in posts) {
+            if (comment.postId == postArr.id) {
+                comments += comment
+            } else {
+                throw PostNotFoundException("Post is not found")
+            }
+        }
+        return comments.last()
     }
 
 }

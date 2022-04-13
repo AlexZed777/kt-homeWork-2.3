@@ -1,7 +1,7 @@
 
 fun main () {
 
-    var post = Post(
+    val post = Post(
         id = 555,
         ownerId = 1,
         fromId = 32,
@@ -32,5 +32,6 @@ fun main () {
         postponedId = 0
     )
     WallService.add(post)
+
 }
 
